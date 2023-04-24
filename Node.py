@@ -6,6 +6,12 @@ class Node:
         self.cost = cost
         self.level = level
 
+    """
+    The sum of the weights of the edges in the MST is added to the cost of the current path,
+    and the resulting value is returned as the lower bound.
+    The MST heuristic is a widely used heuristic for the TSP
+    and provides an estimate of the optimal solution.
+    """
     def get_lower_bound(self, adj_matrix):
         if self.level == len(adj_matrix) - 1:
             return self.cost + adj_matrix[self.path[-1]][self.path[0]]
